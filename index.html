@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/libackpack.css" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+		<script>
+			window.onload = function(){
+				calcRem();
+			};
+			window.onresize = function() {
+				calcRem();
+			}
+
+			// 计算rem大小
+			function calcRem() {
+				var winW = document.documentElement.clientWidth || document.body.clientWidth;
+				// 当屏幕宽度为375px时，1rem = 100px;
+				var fontSize = winW / 375 * 100;
+				document.documentElement.style.fontSize = fontSize + 'px';
+			}
+		</script>
+	</head>
+
+	<body onselectstart="return false">
+		<div class="head">
+			<div class="head_tap state_items">
+				<div class="item">
+					<span class="item_icon"></span>&nbsp;&nbsp;
+					<p>GPS</p>
+				</div>
+				<div class="item">
+					<span class="item_icon"></span>&nbsp;&nbsp;
+					<p>IMU</p>
+				</div>
+				<div class="item">
+					<span class="item_icon"></span>&nbsp;&nbsp;
+					<p>Laser</p>
+				</div>
+				<div class="item">
+					<span class="item_icon"></span>&nbsp;&nbsp;
+					<p>Camera</p>
+				</div>
+			</div>
+			<div id="menu" class="head_tap menu interaction_img">
+			</div>
+		</div>
+
+		<div class="body">
+
+		</div>
+
+		<div class="foot">
+			<div id="countORcopy" class="foot_item count interaction_img">
+				<img src="img/count.png" />
+				<span>
+				COUNT	
+				</span>
+			</div>
+			<div id="start_stop" class="foot_item start_stop interaction_img">
+				<img/>
+				<span>
+				START	
+				</span>
+			</div>
+			<div id="shutdown" class="foot_item shutdown interaction_img">
+				<img src="img/shutdown.png" />
+				<span>
+				SHUTDOWN
+				</span>
+			</div>
+		</div>
+
+		<div id="menu_popup" class="menu_popup">
+			<div id="menu_popup_clear" class="menu_popup_item">
+				Clear
+			</div>
+			<div id="menu_popup_update" class="menu_popup_item">
+				Update
+			</div>
+			<div id="menu_popup_about" class="menu_popup_item">
+				About
+			</div>
+			<div id="menu_popup_setting" class="menu_popup_item">
+				Setting
+			</div>
+			<div id="menu_popup_wifi" class="menu_popup_item">
+				WIFI
+			</div>
+		</div>
+
+		<div id="shutdown_popup" class="shutdown_popup">
+			<div id="shutdown_popup_reboot" class="shutdown_popup_item">
+				<img src="img/reboot.png" />
+				<span>REBOOT</span>
+			</div>
+			<div id="shutdown_popup_shutdown" class="shutdown_popup_item">
+				<img src="img/shutdown.png" />
+				<span>SHUTDOWN</span>
+			</div>
+		</div>
+
+		<div id="popupMask" class="popupMask">
+
+			<div id="clear_popup" class="clear_popup popupContent">
+				<div class="clear_popup_icon">
+
+				</div>
+				<h1>Are you sure?</h1>
+				<h3>These files will be permanently deleted</h3>
+				<div class="clear_popup_buttons">
+					<div id="clear_popup_cancel" class="clear_popup_button clear_popup_cancel">
+						Cancel
+					</div>
+					<div id="clear_popup_delete" class="clear_popup_button clear_popup_delete">
+						Delete
+					</div>
+				</div>
+			</div>
+
+			<div id="update_popup" class="update_popup popupContent">
+				<div class="update_popup_icon">
+
+				</div>
+				<h1>Are you sure?</h1>
+				<h3>Current Version:2.1.2_CG50</h3>
+				<h3>Newest Version:2.1.2_CG50</h3>
+				<div class="update_popup_buttons">
+					<div id="update_popup_cancel" class="update_popup_button update_popup_cancel">
+						Cancel
+					</div>
+					<div id="update_popup_delete" class="update_popup_button update_popup_delete">
+						Delete
+					</div>
+				</div>
+			</div>
+
+			<div id="about_popup" class="about_popup popupContent">
+				<div class="about_popup_icon">
+
+				</div>
+				<h1>LiBackpack Info</h1>
+				<h3>Fireware Version : 2.1.2_CG50</h3>
+				<h3>Phone : +86 400-808-2201(China)</h3>
+				<h3>Email : info@greenvalley.com</h3>
+				<div id="about_popup_ok" class="about_popup_button about_popup_ok">
+					OK
+				</div>
+
+			</div>
+
+			<div id="setting_popup" class="setting_popup popupContent">
+				<h1>LiBackpack Setting</h1>
+				<input type="text" name="" id="" value="" placeholder="min points num" />
+				<input type="text" name="" id="" value="" placeholder="max distance" />
+				<input type="text" name="" id="" value="" placeholder="min distance" />
+				<input type="text" name="" id="" value="" placeholder="file name suffix" />
+				<div class="setting_popup_buttons">
+					<div id="setting_popup_cancel" class="setting_popup_button setting_popup_cancel">
+						Cancel
+					</div>
+					<div id="setting_popup_ok" class="setting_popup_button setting_popup_ok">
+						OK
+					</div>
+				</div>
+			</div>
+
+			<div id="wifi_popup" class="wifi_popup popupContent">
+				<h1>LiBackpack WIFI</h1>
+				<input type="text" name="" id="" value="" placeholder="wifi name suffix" />
+				<input type="text" name="" id="" value="" placeholder="password" />
+				<div class="wifi_popup_buttons">
+					<div id="wifi_popup_cancel" class="wifi_popup_button wifi_popup_cancel">
+						Cancel
+					</div>
+					<div id="wifi_popup_ok" class="wifi_popup_button wifi_popup_ok">
+						OK
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<div id="copy_popup" class="copy_popup popupContent">
+			<h1>SYSTEM STORAGE</h1>
+			<div id="copy_popup_slider" class="copy_popup_slider"></div>
+			<div id="copy_popup_slider_content" class="copy_popup_slider_content">
+				<div class="total_size size_container">
+					<div class="size_tag">
+						Total
+					</div>
+					<span class="size_txt">
+							454&nbsp;<span>GB</span>
+						</span>
+				</div>
+				<div class="used_size size_container">
+					<div class="size_tag">
+						Used
+					</div>
+					<span class="size_txt">
+							11&nbsp;<span>GB</span>
+						</span>
+				</div>
+				<div class="available_size size_container">
+					<div class="size_tag">
+						Available
+					</div>
+					<span class="size_txt">
+							421&nbsp;<span>GB</span>
+						</span>
+				</div>
+			</div>
+			<div id="usb_msg_container" class="usb_msg_container">
+				<table>
+					<thead>
+						<th><input type="checkbox"></th>
+						<th>ID</th>
+						<th>FileName</th>
+						<th>size</th>
+					</thead>
+					<tbody>
+						<tr>
+							<td><input type="checkbox"></td>
+							<td>0</td>
+							<td>123456789</td>
+							<td><span>56KB</span></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox"></td>
+							<td>0</td>
+							<td>123456789</td>
+							<td><span>56KB</span></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox"></td>
+							<td>0</td>
+							<td>123456789</td>
+							<td><span>56KB</span></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox"></td>
+							<td>0</td>
+							<td>123456789</td>
+							<td><span>56KB</span></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+	</body>
+	<script type="text/javascript">
+		var MACHINE_STATE;
+		var SHOWED_POPUP = null;
+
+		document.getElementById("menu").addEventListener("click", function() {
+			var layersController = document.getElementById("menu_popup");
+			var finalStyle = layersController.currentStyle ? layersController.currentStyle : document.defaultView.getComputedStyle(layersController, null); /*利用判断是否支持currentStyle（是否为ie）*/
+			var display_state = finalStyle.display;
+			if(display_state == "block") {
+				layersController.style.display = "none";
+			} else {
+				layersController.style.display = "block";
+			}
+		});
+
+		document.getElementById("countORcopy").addEventListener("click", function() {
+			var str = trim(this.querySelector("span").innerHTML);
+			console.log(str);
+			if(str == "COUNT") {
+
+			} else if(str == "COPY") {
+				showPopup("copy_popup");
+			}
+		});
+
+		document.getElementById("start_stop").addEventListener("click", function() {
+			var span = this.querySelector("span");
+			var img = this.querySelector("img");
+			var count_img = document.getElementById("countORcopy").querySelector("img");
+			var count_span = document.getElementById("countORcopy").querySelector("span");
+
+			if(span.innerText == "START") {
+				span.innerHTML = "STOP";
+				img.style.backgroundImage = "url(./img/stop.png)";
+				count_img.setAttribute("src", "img/copy.png");
+				count_span.innerHTML = "COPY";
+			} else if(span.innerText == "STOP") {
+				span.innerHTML = "START";
+				img.style.backgroundImage = "url(./img/start.png)";
+				count_img.setAttribute("src", "img/count.png");
+				count_span.innerHTML = "COUNT";
+			}
+		});
+
+		document.getElementById("shutdown").addEventListener("click", function() {
+			var layersController = document.getElementById("shutdown_popup");
+			var finalStyle = layersController.currentStyle ? layersController.currentStyle : document.defaultView.getComputedStyle(layersController, null); /*利用判断是否支持currentStyle（是否为ie）*/
+			var display_state = finalStyle.display;
+			if(display_state == "block") {
+				layersController.style.display = "none";
+			} else {
+				layersController.style.display = "block";
+			}
+		});
+
+		document.getElementById("menu_popup_clear").addEventListener("click", function() {
+			showPopup("clear_popup");
+		});
+
+		document.getElementById("clear_popup_cancel").addEventListener("click", function() {
+			hidePopup();
+		});
+
+		document.getElementById("clear_popup_delete").addEventListener("click", function() {
+
+		});
+
+		document.getElementById("menu_popup_update").addEventListener("click", function() {
+			showPopup("update_popup");
+		});
+		document.getElementById("update_popup_cancel").addEventListener("click", function() {
+			hidePopup();
+		});
+		document.getElementById("update_popup_delete").addEventListener("click", function() {
+
+		});
+
+		document.getElementById("menu_popup_about").addEventListener("click", function() {
+			showPopup("about_popup");
+		});
+		document.getElementById("about_popup_ok").addEventListener("click", function() {
+			hidePopup();
+		});
+
+		document.getElementById("menu_popup_setting").addEventListener("click", function() {
+			showPopup("setting_popup");
+		});
+		document.getElementById("setting_popup_cancel").addEventListener("click", function() {
+			hidePopup();
+		});
+		document.getElementById("setting_popup_ok").addEventListener("click", function() {
+
+		});
+
+		document.getElementById("menu_popup_wifi").addEventListener("click", function() {
+			showPopup("wifi_popup");
+		});
+		document.getElementById("wifi_popup_cancel").addEventListener("click", function() {
+			hidePopup();
+		});
+		document.getElementById("wifi_popup_ok").addEventListener("click", function() {
+
+		});
+
+		document.getElementById("shutdown_popup_reboot").addEventListener("click", function() {
+			document.getElementById("shutdown_popup").style.display = "none";
+		});
+		document.getElementById("shutdown_popup_shutdown").addEventListener("click", function() {
+			document.getElementById("shutdown_popup").style.display = "none";
+		});
+
+		function showPopup(elementID) {
+			document.getElementById("menu_popup").style.display = "none";
+			var current_popup = document.getElementById(elementID);
+			document.getElementById("popupMask").style.display = "block";
+			if(SHOWED_POPUP !== null) {
+				SHOWED_POPUP.style.display = "none";
+			}
+			current_popup.style.display = "flex";
+			SHOWED_POPUP = current_popup;
+		}
+
+		function hidePopup() {
+			document.getElementById("popupMask").style.display = "none";
+		}
+
+		//去左右空格;
+		function trim(s) {
+			return s.replace(/(^\s*)|(\s*$)/g, "");
+		}
+	</script>
+
+</html>
